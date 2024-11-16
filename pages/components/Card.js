@@ -1,8 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../../styles/Card.module.css"
+import styles from "../../styles/Card.module.css";
 
-export default function ({ pokemon }) {
+export default function Card({ pokemon }) {
+  if (!pokemon || !pokemon.id || !pokemon.name) {
+    console.error("Dados inválidos recebidos no componente Card:", pokemon);
+    return <div className={styles.card}>Dados do Pokémon não disponíveis.</div>;
+  }
+
   let str = ''
 
   if (pokemon.id < 10) {
@@ -16,9 +21,10 @@ export default function ({ pokemon }) {
   return (
     <div className={styles.card}>
       <Image
-        src={`/images/thumbs/${str}.png`} //001
-        width="120"
-        height="120"
+        src={`/images/thumbs/${str}.png`}
+        width={120}
+        height={120}
+        alt={`Imagem do Pokémon ${pokemon.name}`}
       />
       <p>#{pokemon.id}</p>
       <h3 className={styles.title}>{pokemon.name}</h3>
@@ -26,5 +32,5 @@ export default function ({ pokemon }) {
         <a className={styles.btn}>Detalhes</a>
       </Link>
     </div>
-  )
+  );
 }
