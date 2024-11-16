@@ -14,7 +14,7 @@
   flex-shrink: 0;
 }
 
-.card .id{
+.card p{
   margin: 1em 0;
   background-color: #e33d33;
   border-radius: 5px;

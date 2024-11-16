@@ -12,8 +12,6 @@ export default function ({ pokemon }) {
   } else {
     str = `${pokemon.id}`
   }
-  "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/001.png"
-  console.log(`https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/detail/${str}.png`)
 
   return (
     <div className={styles.card}>
@@ -22,7 +20,7 @@ export default function ({ pokemon }) {
         width="120"
         height="120"
       />
-      <p className={styles.id}>#{pokemon.id}</p>
+      <p>#{pokemon.id}</p>
       <h3 className={styles.title}>{pokemon.name}</h3>
       <Link legacyBehavior href={`/pokemon/${pokemon.id}`}>
         <a className={styles.btn}>Detalhes</a>
